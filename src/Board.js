@@ -29,30 +29,30 @@
       this.trigger('change');
     },
 
-    // _getFirstRowColumnIndexForMajorDiagonalOn: function(rowIndex, colIndex) {
-    //   return colIndex - rowIndex;
-    // },
+    _getFirstRowColumnIndexForMajorDiagonalOn: function(rowIndex, colIndex) {
+      return colIndex - rowIndex;
+    },
 
-    // _getFirstRowColumnIndexForMinorDiagonalOn: function(rowIndex, colIndex) {
-    //   return colIndex + rowIndex;
-    // },
+    _getFirstRowColumnIndexForMinorDiagonalOn: function(rowIndex, colIndex) {
+      return colIndex + rowIndex;
+    },
 
     hasAnyRooksConflicts: function() {
       return this.hasAnyRowConflicts() || this.hasAnyColConflicts();
     },
 
-    // hasAnyQueenConflictsOn: function(rowIndex, colIndex) {
-    //   return (
-    //     this.hasRowConflictAt(rowIndex) ||
-    //     this.hasColConflictAt(colIndex) ||
-    //     this.hasMajorDiagonalConflictAt(this._getFirstRowColumnIndexForMajorDiagonalOn(rowIndex, colIndex)) ||
-    //     this.hasMinorDiagonalConflictAt(this._getFirstRowColumnIndexForMinorDiagonalOn(rowIndex, colIndex))
-    //   );
-    // },
+    hasAnyQueenConflictsOn: function(rowIndex, colIndex) {
+      return (
+        this.hasRowConflictAt(rowIndex) ||
+        this.hasColConflictAt(colIndex) ||
+        this.hasMajorDiagonalConflictAt(this._getFirstRowColumnIndexForMajorDiagonalOn(rowIndex, colIndex)) ||
+        this.hasMinorDiagonalConflictAt(this._getFirstRowColumnIndexForMinorDiagonalOn(rowIndex, colIndex))
+      );
+    },
 
-    // hasAnyQueensConflicts: function() {
-    //   return this.hasAnyRooksConflicts() || this.hasAnyMajorDiagonalConflicts() || this.hasAnyMinorDiagonalConflicts();
-    // },
+    hasAnyQueensConflicts: function() {
+      return this.hasAnyRooksConflicts() || this.hasAnyMajorDiagonalConflicts() || this.hasAnyMinorDiagonalConflicts();
+    },
 
     _isInBounds: function(rowIndex, colIndex) {
       return (
@@ -155,7 +155,13 @@
         }
         if (count > 1) { return true; }
       }
-      return false; 
+      return false;
+      // var rows = this.rows();
+      // var startIndex = rows.length - 1;
+      // var c
+      // for (var rowIdx = startIndex; rowIdx >= 0; rowIdx--) {
+        
+      // }
     },
 
     // test if any major diagonals on this board contain conflicts
@@ -166,6 +172,8 @@
       }
       return false;
     },
+
+       
 
 
 
