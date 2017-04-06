@@ -29,30 +29,30 @@
       this.trigger('change');
     },
 
-    _getFirstRowColumnIndexForMajorDiagonalOn: function(rowIndex, colIndex) {
-      return colIndex - rowIndex;
-    },
+    // _getFirstRowColumnIndexForMajorDiagonalOn: function(rowIndex, colIndex) {
+    //   return colIndex - rowIndex;
+    // },
 
-    _getFirstRowColumnIndexForMinorDiagonalOn: function(rowIndex, colIndex) {
-      return colIndex + rowIndex;
-    },
+    // _getFirstRowColumnIndexForMinorDiagonalOn: function(rowIndex, colIndex) {
+    //   return colIndex + rowIndex;
+    // },
 
     hasAnyRooksConflicts: function() {
       return this.hasAnyRowConflicts() || this.hasAnyColConflicts();
     },
 
-    hasAnyQueenConflictsOn: function(rowIndex, colIndex) {
-      return (
-        this.hasRowConflictAt(rowIndex) ||
-        this.hasColConflictAt(colIndex) ||
-        this.hasMajorDiagonalConflictAt(this._getFirstRowColumnIndexForMajorDiagonalOn(rowIndex, colIndex)) ||
-        this.hasMinorDiagonalConflictAt(this._getFirstRowColumnIndexForMinorDiagonalOn(rowIndex, colIndex))
-      );
-    },
+    // hasAnyQueenConflictsOn: function(rowIndex, colIndex) {
+    //   return (
+    //     this.hasRowConflictAt(rowIndex) ||
+    //     this.hasColConflictAt(colIndex) ||
+    //     this.hasMajorDiagonalConflictAt(this._getFirstRowColumnIndexForMajorDiagonalOn(rowIndex, colIndex)) ||
+    //     this.hasMinorDiagonalConflictAt(this._getFirstRowColumnIndexForMinorDiagonalOn(rowIndex, colIndex))
+    //   );
+    // },
 
-    hasAnyQueensConflicts: function() {
-      return this.hasAnyRooksConflicts() || this.hasAnyMajorDiagonalConflicts() || this.hasAnyMinorDiagonalConflicts();
-    },
+    // hasAnyQueensConflicts: function() {
+    //   return this.hasAnyRooksConflicts() || this.hasAnyMajorDiagonalConflicts() || this.hasAnyMinorDiagonalConflicts();
+    // },
 
     _isInBounds: function(rowIndex, colIndex) {
       return (
@@ -60,6 +60,18 @@
         0 <= colIndex && colIndex < this.get('n')
       );
     },
+
+
+    countPieces: function(n) {
+      var count = 0;
+      for (var i = 0; i < n; i ++) {
+        for (var j = 0; j < n; j++) {
+          if (this.rows()[i][j] === 1) count++;
+        }
+      }
+      return count;
+    },
+
 
 
 /*
